@@ -1,0 +1,39 @@
+{
+"title" : "Title",
+"desc" : "Ladepunkte",
+"max_total_power" : 24000,
+"power_reserve" : 5000,
+"overdraft" : 0,
+"max_total_evse_power" : 11000,
+"consumed_evse_power" : 0,
+"remaining_evse_power" : 11000,
+"lb_enabled" : true,
+"disable_policy" : 1,
+"ocpp_srv_tls_mode" : "off",
+"ocpp_srv_port" : 19520,
+"ocpp_srv_use_ext_cert" : false,
+"ocpp_srv_cert_fn" : "",
+"ocpp_srv_private_key_fn" : "",
+"ocpp_srv_cacert_fn" : 
+[
+],
+"price_model" : 0,
+"fixed_price" : 0,
+"tibber_home_id" : "",
+"cycle_time" : 3010,
+"max_evses" : 3,
+"shareware_mode" : false,
+"version" : "1.12.0",
+"time" : 1664805980,
+"vsn" : 
+{
+"vendorid" : 52997,
+"version" : 17564848,
+"productid" : 1,
+"serialno" : "SERIAL"
+},
+"cpu" : 29,
+"mem" : 55,
+"ocpp_gateway_license_cnt" : 0,
+"ocpp_gateway_licenses_used" : 0
+}

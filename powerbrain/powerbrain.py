@@ -11,7 +11,10 @@ class Powerbrain:
         self.meta = self.session.get(f'{self.base_url}/cnf?cmd=get_params').json()
         self.max_total_evse_power = self.meta['max_total_evse_power']
         self.version = self.meta['version']
-        self.device_names = self.meta['dev_meta']
+        if 'dev_meta' in self.meta:
+            self.device_names = self.meta['dev_meta']
+        else:
+            self.device_names = self.session.get(f'{self.base_url}/cnf?cmd=get_dev_types').json()
     
     def get_dev_info(self, get_raw_response=False):
         response = self.session.get(f'{self.base_url}/cnf?cmd=get_dev_info').json()
