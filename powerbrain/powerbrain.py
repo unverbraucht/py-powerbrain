@@ -27,7 +27,23 @@ class Powerbrain:
                 dev_id = raw_device['dev_id']
                 dev_type = raw_device['dev_type']
                 raw_device['dev_type_label'] = self.device_names[dev_type]
+                # Attach might not be set at all
+                if not 'attach' in raw_device:
+                    raw_device['attach'] = None
                 devices[dev_id] = raw_device
+        
+        # Link attached devices
+        for dev_id in devices:
+            attached_id = devices[dev_id]['attach']
+            if attached_id is not None:
+                if attached_id in devices:
+                    devices[dev_id]['attached_device'] = devices[attached_id]
+                else:
+                    devices[dev_id]['attached_device'] = None
+                    devices[dev_id]['attach'] = None
+            else:
+                devices[dev_id]['attach'] = None
+                
         
         # Copy all dict keys except for devices
         for key in response:

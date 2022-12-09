@@ -20,7 +20,7 @@ def setup_requests_mock(ResponseVersion, requests_mock):
 
 TEST_DIR = path.join(path.dirname(path.realpath(__file__)), 'responses')
 
-@pytest.fixture(params=['1.6.1042', '1.12.0', '1.14.0'])
+@pytest.fixture(params=['1.12.0', '1.14.0'])
 def ResponseVersion(request):
     responses = read_file_to_json(TEST_DIR, request.param, 'get_params') | \
         read_file_to_json(TEST_DIR, request.param, 'get_dev_info') | \
@@ -40,4 +40,5 @@ def test_status(requests_mock, ResponseVersion):
     dev_info = pb.get_dev_info()
     assert dev_info['loadmgr_disabled'] == False
     assert dev_info['devices']['E1'] != None
+    assert dev_info['devices']['E1']['attached_device'] != None
 
